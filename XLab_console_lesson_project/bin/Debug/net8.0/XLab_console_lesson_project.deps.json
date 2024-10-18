@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "XLab_console_lesson_project/1.0.0": {
+        "runtime": {
+          "XLab_console_lesson_project.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "XLab_console_lesson_project/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

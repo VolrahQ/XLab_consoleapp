@@ -1,0 +1,15 @@
+c:\Sharp_console_project\XLab_console_lesson_project\bin\Debug\net8.0\XLab_console_lesson_project.exe
+c:\Sharp_console_project\XLab_console_lesson_project\bin\Debug\net8.0\XLab_console_lesson_project.deps.json
+c:\Sharp_console_project\XLab_console_lesson_project\bin\Debug\net8.0\XLab_console_lesson_project.runtimeconfig.json
+c:\Sharp_console_project\XLab_console_lesson_project\bin\Debug\net8.0\XLab_console_lesson_project.dll
+c:\Sharp_console_project\XLab_console_lesson_project\bin\Debug\net8.0\XLab_console_lesson_project.pdb
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.GeneratedMSBuildEditorConfig.editorconfig
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.AssemblyInfoInputs.cache
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.AssemblyInfo.cs
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.csproj.CoreCompileInputs.cache
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.dll
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\refint\XLab_console_lesson_project.dll
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.pdb
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.genruntimeconfig.cache
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\ref\XLab_console_lesson_project.dll
+c:\Sharp_console_project\XLab_console_lesson_project\obj\Debug\net8.0\XLab_console_lesson_project.sourcelink.json
