@@ -1,16 +1,38 @@
 ﻿internal class Program
 {
-    private static void Main(string[] args)
+    public static void Main()
     {
-        Console.WriteLine("Hello, World!");
+        MyList myList = new MyList();
 
-        Console.WriteLine($"short - size: {sizeof(short)}");
+        Console.WriteLine("Count = " + myList.Count);
+        myList.Add(10);
+        myList.Add(20);
+        myList.Add(30);
+        Console.WriteLine("Count = " + myList.Count);
+        myList.Add(40);
+        Console.WriteLine("Count = " + myList.Count);
+        myList.Add(-1);
+        myList.Add(54);
+        myList.Add(32);
+        myList.Add(-123);
+        Console.WriteLine("Count = " + myList.Count);
 
-        Console.WriteLine($"{Convert.ToString(int.MaxValue, 2)}");
-        char c = "c";
-        string s = "string";
-        string s = "abcd";
-        byte[] bm = new byte [8];
-        Console.WriteLine($"{bm}");
+        Console.WriteLine("До изменения" + myList.ToString());
+        Console.WriteLine("Использование ForEach");
+        myList.ForEach(item => Console.WriteLine(item));
+
+        myList.Remove(20);
+        Console.WriteLine("Count = " + myList.Count);
+
+        myList.Insert(1, 5);
+        Console.WriteLine("Count = " + myList.Count);
+
+        myList.RemoveAt(2);
+        Console.WriteLine("Count = " + myList.Count);
+
+        myList.Clear();
+        Console.WriteLine("Count = " + myList.Count);
+
+        Console.WriteLine("После изменения: " + myList.ToString());
     }
 }
