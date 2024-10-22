@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ForkProj\\XLab_consoleapp\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj": {}
+    "C:\\Sharp_console_project\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj": {}
   },
   "projects": {
-    "D:\\ForkProj\\XLab_consoleapp\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj": {
+    "C:\\Sharp_console_project\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ForkProj\\XLab_consoleapp\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj",
+        "projectUniqueName": "C:\\Sharp_console_project\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj",
         "projectName": "XLab_console_lesson_project",
-        "projectPath": "D:\\ForkProj\\XLab_consoleapp\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj",
-        "packagesPath": "C:\\Users\\stiks\\.nuget\\packages\\",
-        "outputPath": "D:\\ForkProj\\XLab_consoleapp\\XLab_console_lesson_project\\obj\\",
+        "projectPath": "C:\\Sharp_console_project\\XLab_console_lesson_project\\XLab_console_lesson_project.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Sharp_console_project\\XLab_console_lesson_project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stiks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

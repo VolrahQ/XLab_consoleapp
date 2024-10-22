@@ -31,7 +31,7 @@ public class MyList : IEnumerable<int>
         {
             if (_array[i] == item)
             {
-                _array[i] = _array[_count - 1];
+                _array[i] = _array[i + 1];
                 _count--;
                 Array.Resize(ref _array, _count);
                 return;
@@ -71,6 +71,7 @@ public class MyList : IEnumerable<int>
 
         _array[index] = item;
         _count++;
+     
     }
 
     public void Clear()

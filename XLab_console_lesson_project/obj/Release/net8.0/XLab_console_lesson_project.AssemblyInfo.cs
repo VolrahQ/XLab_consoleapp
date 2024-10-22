@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XLab_console_lesson_project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+203c465651302af4e37a32fbd1d2b9dfa2b19ead")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcc60cb7f1ef5eb80c179ed8412dc4b18f6f256a")]
 [assembly: System.Reflection.AssemblyProductAttribute("XLab_console_lesson_project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XLab_console_lesson_project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

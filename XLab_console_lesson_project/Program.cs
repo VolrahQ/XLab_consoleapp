@@ -23,16 +23,21 @@
 
         myList.Remove(20);
         Console.WriteLine("Count = " + myList.Count);
+        myList.ForEach(item => Console.WriteLine(item));
 
         myList.Insert(1, 5);
         Console.WriteLine("Count = " + myList.Count);
+        myList.ForEach(item => Console.WriteLine(item));
 
         myList.RemoveAt(2);
         Console.WriteLine("Count = " + myList.Count);
+        myList.ForEach(item => Console.WriteLine(item));
 
         myList.Clear();
         Console.WriteLine("Count = " + myList.Count);
+        myList.ForEach(item => Console.WriteLine(item));
 
         Console.WriteLine("После изменения: " + myList.ToString());
+        Console.ReadLine();
     }
 }
