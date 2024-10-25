@@ -1,108 +1,212 @@
+using System;
 
-using System.Collections;
-
-public class MyList : IEnumerable<int>
+public class MyList<T>
 {
-    private int[] _array = new int[4];
-    private int _count = 0;
+    private T[] _items;
+    private int _size;
+
+    private const int DefaultCapacity = 4;
+
+    public MyList()
+    {
+        _items = new T[DefaultCapacity];
+        _size = 0;
+    }
 
     public int Count
     {
-        get { return _count; }
+        get { return _size; }
     }
 
-    public void AddResize()
+    public int Capacity
     {
-        if (_count == _array.Length)
+        get { return _items.Length; }
+        set
         {
-            Array.Resize(ref _array, _count + 4);
-        }
-    }
-    public void Add(int item)
-    {
-        AddResize();
+            if (value < _size)
+                throw new ArgumentOutOfRangeException(nameof(value), "Новая емкость должна быть больше _size");
 
-        _array[_count++] = item;
-    }
-
-    public void Remove(int item)
-    {
-        for (int i = 0; i < _count; i++)
-        {
-            if (_array[i] == item)
+            if (value != _items.Length)
             {
-                _array[i] = _array[i + 1];
-                _count--;
-                Array.Resize(ref _array, _count);
-                return;
+                T[] newItems = new T[value];
+                Array.Copy(_items, newItems, _size);
+                _items = newItems;
             }
         }
     }
 
-    public void RemoveAt(int index)
+    public T this[int index]
     {
-        if (index < 0 || index >= _count)
+        get
         {
-            throw new IndexOutOfRangeException();
-        }
+            if (index < 0 || index >= _size)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index out of range.");
 
-        for (int i = index; i < _count - 1; i++)
+            return _items[index];
+        }
+        set
         {
-            _array[i] = _array[i + 1];
-        }
+            if (index < 0 || index >= _size)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index out of range.");
 
-        _count--;
-        Array.Resize(ref _array, _count);
+            _items[index] = value;
+        }
     }
 
-    public void Insert(int index, int item)
+    public void Add(T item)
     {
-        if (index < 0 || index > _count)
+        if (_size == _items.Length)
         {
-            throw new IndexOutOfRangeException();
+            EnsureCapacity(_size + 1);
         }
+        _items[_size++] = item;
+    }
 
-        AddResize();
-
-        for (int i = _count - 1; i >= index; i--)
+    public bool Remove(T item)
+    {
+        int index = IndexOf(item);
+        if (index >= 0)
         {
-            _array[i + 1] = _array[i];
+            RemoveAt(index);
+            return true;
         }
+        return false;
+    }
 
-        _array[index] = item;
-        _count++;
-     
+    public void RemoveAt(int index)
+    {
+        if (index < 0 || index >= _size)
+            throw new ArgumentOutOfRangeException(nameof(index), "Index out of range.");
+
+        _size--;
+        if (index < _size)
+        {
+            Array.Copy(_items, index + 1, _items, index, _size - index);
+        }
+        _items[_size] = default(T);
+    }
+
+    public int IndexOf(T item)
+    {
+        for (int i = 0; i < _size; i++)
+        {
+            if (Equals(_items[i], item))
+                return i;
+        }
+        return -1;
+    }
+
+    public bool Contains(T item)
+    {
+        return IndexOf(item) >= 0;
     }
 
     public void Clear()
     {
-        Array.Clear(_array, 0, _count);
-        _count = 0;
-        Array.Resize(ref _array, _count);
+        for (int i = 0; i < _size; i++)
+        {
+            _items[i] = default(T);
+        }
+        _size = 0;
     }
 
-    public new string ToString()
+    private void EnsureCapacity(int min)
     {
-        return string.Join(", ", _array);
-    }
-    public IEnumerator<int> GetEnumerator()
-    {
-        for (int i = 0; i < _count; i++)
+        if (_items.Length < min)
         {
-            yield return _array[i];
+            int newCapacity = _items.Length == 0 ? DefaultCapacity : _items.Length * 2;
+            if (newCapacity < min) newCapacity = min;
+            Capacity = newCapacity;
         }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public void Insert(int index, T item)
     {
-        return GetEnumerator();
+        if (index < 0 || index > _size)
+            throw new ArgumentOutOfRangeException(nameof(index), "Index out of range.");
+
+        if (_size == _items.Length)
+        {
+            EnsureCapacity(_size + 1);
+        }
+
+        if (index < _size)
+        {
+            Array.Copy(_items, index, _items, index + 1, _size - index);
+        }
+
+        _items[index] = item;
+        _size++;
     }
 
-    public void ForEach(Action<int> action)
+    public T[] ToArray()
     {
-        foreach (int item in this)
+        T[] array = new T[_size];
+        Array.Copy(_items, array, _size);
+        return array;
+    }
+
+    public override string ToString()
+    {
+        if (_size == 0)
         {
-            action(item);
+            return "[]";
         }
+
+        string result = "[";
+        for (int i = 0; i < _size; i++)
+        {
+            result += _items[i];
+            if (i < _size - 1)
+            {
+                result += ", ";
+            }
+        }
+        result += "]";
+        return result;
+    }
+
+    public void ForEach(Action<T> action)
+    {
+        if (action == null)
+            throw new ArgumentNullException(nameof(action));
+
+        for (int i = 0; i < _size; i++)
+        {
+            action(_items[i]);
+        }
+    }
+
+    public T Find(Predicate<T> match)
+    {
+        if (match == null)
+            throw new ArgumentNullException(nameof(match));
+
+        for (int i = 0; i < _size; i++)
+        {
+            if (match(_items[i]))
+            {
+                return _items[i];
+            }
+        }
+        return default(T);
+    }
+
+    public void Sort()
+    {
+        Array.Sort(_items, 0, _size);
+    }
+
+    public void Sort(IComparer<T> comparer)
+    {
+        Array.Sort(_items, 0, _size, comparer);
+    }
+
+    public void Sort(Comparison<T> comparison)
+    {
+        if (comparison == null)
+            throw new ArgumentNullException(nameof(comparison));
+
+        Array.Sort(_items, 0, _size, Comparer<T>.Create(comparison));
     }
 }
